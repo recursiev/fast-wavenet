@@ -44,7 +44,7 @@ class Model(object):
                          bias=True)
 
         costs = tf.nn.sparse_softmax_cross_entropy_with_logits(
-            outputs, targets)
+            logits=outputs, labels=targets)
         cost = tf.reduce_mean(costs)
 
         train_step = tf.train.AdamOptimizer(learning_rate=0.001).minimize(cost)
